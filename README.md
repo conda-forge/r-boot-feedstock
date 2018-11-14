@@ -14,9 +14,8 @@ Summary: Functions and datasets for bootstrapping from the book "Bootstrap Metho
 Current build status
 ====================
 
-[![Linux](https://img.shields.io/circleci/project/github/conda-forge/r-boot-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/r-boot-feedstock)
-[![OSX](https://img.shields.io/travis/conda-forge/r-boot-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/r-boot-feedstock)
-[![Windows](https://img.shields.io/appveyor/ci/conda-forge/r-boot-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/r-boot-feedstock/branch/master)
+All platforms:
+[![noarch](https://img.shields.io/circleci/project/github/conda-forge/r-boot-feedstock/master.svg?label=noarch)](https://circleci.com/gh/conda-forge/r-boot-feedstock)
 
 Current release info
 ====================
