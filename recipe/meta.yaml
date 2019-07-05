@@ -1,5 +1,4 @@
-{% set version = "1.3-22" %}
-
+{% set version = '1.3-23' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,44 +7,61 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: boot_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/boot_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/boot/boot_{{ version }}.tar.gz
-  sha256: cf1f0cb1e0a7a36dcb6ae038f5d0211a0e7a009c149bc9d21acb9c58c38b4dfc
+    - {{ cran_mirror }}/src/contrib/boot_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/boot/boot_{{ version }}.tar.gz
+  sha256: 30c89e19dd6490b943233e87dfe422bfef92cfbb7a7dfb5c17dfd9b2d63fa02f
 
 build:
-  noarch: generic
+  merge_build_host: True  # [win]
   number: 0
+  noarch: generic
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
+    - {{posix}}zip               # [win]
+  host:
     - r-base
-
   run:
     - r-base
 
 test:
   commands:
-    - $R -e "library('boot')"  # [not win]
+    - $R -e "library('boot')"           # [not win]
     - "\"%R%\" -e \"library('boot')\""  # [win]
 
 about:
   home: https://CRAN.R-project.org/package=boot
   license: Unlimited
-  summary: 'Functions and datasets for bootstrapping from the book "Bootstrap Methods and Their
+  summary: Functions and datasets for bootstrapping from the book "Bootstrap Methods and Their
     Application" by A. C. Davison and  D. V. Hinkley (1997, CUP), originally written
-    by Angelo Canty for S.'
+    by Angelo Canty for S.
   license_family: MIT
 
 extra:
   recipe-maintainers:
-    - cbrueffer
     - ocefpaf
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
+    - conda-forge/r
+
+# Package: boot
+# Priority: recommended
+# Version: 1.3-23
+# Date: 2019-07-02
+# Authors@R: c(person("Angelo", "Canty", role = "aut", email = "cantya@mcmaster.ca"), person("Brian", "Ripley", role = c("aut", "trl", "cre"), email = "ripley@stats.ox.ac.uk", comment = "author of parallel support"))
+# Maintainer: Brian Ripley <ripley@stats.ox.ac.uk>
+# Note: Maintainers are not available to give advice on using a package they did not author.
+# Description: Functions and datasets for bootstrapping from the book "Bootstrap Methods and Their Application" by A. C. Davison and  D. V. Hinkley (1997, CUP), originally written by Angelo Canty for S.
+# Title: Bootstrap Functions (Originally by Angelo Canty for S)
+# Depends: R (>= 3.0.0), graphics, stats
+# Suggests: MASS, survival
+# LazyData: yes
+# ByteCompile: yes
+# License: Unlimited
+# NeedsCompilation: no
+# Packaged: 2019-07-02 21:00:31 UTC; ripley
+# Author: Angelo Canty [aut], Brian Ripley [aut, trl, cre] (author of parallel support)
+# Repository: CRAN
+# Date/Publication: 2019-07-05 13:41:45 UTC
