@@ -1,11 +1,11 @@
-About r-boot
-============
+About r-boot-feedstock
+======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-boot-feedstock/blob/main/LICENSE.txt)
 
 Home: https://CRAN.R-project.org/package=boot
 
 Package license: Unlimited
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-boot-feedstock/blob/main/LICENSE.txt)
 
 Summary: Functions and datasets for bootstrapping from the book "Bootstrap Methods and Their Application" by A. C. Davison and  D. V. Hinkley (1997, CUP), originally written by Angelo Canty for S.
 
